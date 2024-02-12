@@ -1,17 +1,22 @@
 using AuctionsApi.Communication.Requests;
+using AuctionsApi.Contracts;
 using AuctionsApi.Entities;
 using AuctionsApi.Services;
 
-namespace AuctionsApi.UseCases;
+namespace AuctionsApi.UseCases.Offers.CreateOffer;
 
 public class CreateOfferUseCase
 {
-  private readonly LoggedUser _loggedUser;
-  public CreateOfferUseCase(LoggedUser loggedUser) => _loggedUser = loggedUser;
+  private readonly ILoggedUser _loggedUser;
+  private readonly IOfferRepository _offerRepository;
+  public CreateOfferUseCase(ILoggedUser loggedUser, IOfferRepository offerRepository)
+  {
+    _loggedUser = loggedUser;
+    _offerRepository = offerRepository;
+  }
 
   public int Execute(int itemId, RequestCreateOfferJson request)
   {
-    var repository = new AuctionDbContext();
     var user = _loggedUser.User();
     var offer = new Offer
     {
@@ -20,8 +25,7 @@ public class CreateOfferUseCase
       Price = request.Price,
       UserId = user.Id
     };
-    repository.Offers.Add(offer);
-    repository.SaveChanges();
+    _offerRepository.Add(offer);
     return offer.Id;
   }
 }

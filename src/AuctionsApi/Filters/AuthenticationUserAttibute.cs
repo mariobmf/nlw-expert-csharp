@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+using AuctionsApi.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -7,17 +7,19 @@ namespace AuctionsApi.Filters;
 
 public class AuthenticationUserAtribute : AuthorizeAttribute, IAuthorizationFilter
 {
+  private readonly IUserRepository _userRepository;
+
+  public AuthenticationUserAtribute(IUserRepository userRepository) => _userRepository = userRepository;
+
   public void OnAuthorization(AuthorizationFilterContext context)
   {
     try
     {
       var token = TokenOnRequest(context.HttpContext);
-      var repository = new AuctionDbContext();
       var email = FromBase64String(token);
-      var userExist = repository.Users.Any(user => user.Email.Equals(email));
+      var userExist = _userRepository.ExistUserWithEmail(email);
       if (!userExist)
         context.Result = new UnauthorizedObjectResult("E-mail not valid!");
-
     }
     catch (Exception ex)
     {

@@ -1,6 +1,6 @@
 ﻿using AuctionsApi.Communication.Requests;
 using AuctionsApi.Filters;
-using AuctionsApi.UseCases;
+using AuctionsApi.UseCases.Offers.CreateOffer;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AuctionsApi.Controllers;

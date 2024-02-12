@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{10812CC3-D8D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionsApi", "src\AuctionsApi\AuctionsApi.csproj", "{B0EAC3F9-E97E-4C17-8594-CA3D26FDD23C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{CD904F17-287A-4868-9851-2B4C74D99E18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCasesTests", "tests\UseCasesTests\UseCasesTests.csproj", "{25A7C631-F8FC-4D12-88BD-6B1C3F11B512}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +24,13 @@ Global
 		{B0EAC3F9-E97E-4C17-8594-CA3D26FDD23C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0EAC3F9-E97E-4C17-8594-CA3D26FDD23C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0EAC3F9-E97E-4C17-8594-CA3D26FDD23C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25A7C631-F8FC-4D12-88BD-6B1C3F11B512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25A7C631-F8FC-4D12-88BD-6B1C3F11B512}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25A7C631-F8FC-4D12-88BD-6B1C3F11B512}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25A7C631-F8FC-4D12-88BD-6B1C3F11B512}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B0EAC3F9-E97E-4C17-8594-CA3D26FDD23C} = {10812CC3-D8D6-4296-91C1-CC68932CB057}
+		{25A7C631-F8FC-4D12-88BD-6B1C3F11B512} = {CD904F17-287A-4868-9851-2B4C74D99E18}
 	EndGlobalSection
 EndGlobal
